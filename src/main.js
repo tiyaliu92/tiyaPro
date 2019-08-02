@@ -2,12 +2,29 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-import './registerServiceWorker'
 
-Vue.config.productionTip = false
+import './registerServiceWorker'
+import ElementUI from 'element-ui'
+import 'element-ui/lib/theme-chalk/index.css'
+Vue.use(ElementUI)
+
+import './assets/css/common.css'
+import './assets/css/reset.css'
+
+import {post,get} from './config/httpconfig'
+import 'lib-flexible/flexible.js'
+//全局挂载
+Vue.prototype.post = post;
+Vue.prototype.get = get;
+// import VueAxios from 'vue-axios'
+// Vue.use(VueAxios, axios)
+
+// Vue.config.productionTip = false
+
+
 
 new Vue({
   router,
   store,
-  render: h => h(App)
+  render: h => h(App),
 }).$mount('#app')

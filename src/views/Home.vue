@@ -5,7 +5,7 @@
             <router-link class="system-name" tag="span" :to="{name: 'c1', params: {id:'math',test:'test'}}">看看天上于是我剪下了月光</router-link>
         </el-header>
         <el-container>
-            <el-aside width="200px">
+            <el-aside>
                 <el-menu
                         :default-active="$route.path"
                         class="el-menu-vertical-demo"
@@ -27,13 +27,12 @@
             </el-aside>
             <el-container>
                 <el-main>
-                    <keep-alive>
-                        <router-view :key="$route.fullPath"></router-view>
-                    </keep-alive>
+                    <router-view></router-view>
                 </el-main>
-                <el-footer>Footer</el-footer>
             </el-container>
+
         </el-container>
+        <el-footer>Footer</el-footer>
     </el-container>
 </template>
 <script>
@@ -62,20 +61,72 @@
         height: 100%;
 
         .el-header, .el-footer {
-            background-color: #f5cfdb;
-            color: #333;
-            height: 60px;
-            line-height: 60px;
+            color: #fff;
             text-align: left;
         }
+        .el-header{
+            height: 60px;
+            line-height: 60px;
+            /*background: #ffa39c;*/
+            background: -webkit-linear-gradient(left, #f04b81 , #ff9b71); /* Safari 5.1 - 6.0 */
+            background: -o-linear-gradient(right, #f04b81, #ff9b71); /* Opera 11.1 - 12.0 */
+            background: -moz-linear-gradient(right, #f04b81, #ff9b71); /* Firefox 3.6 - 15 */
+            background: linear-gradient(to right, #f04b81 , #ff9b71); /* 标准的语法 */
+
+        }
+        .el-footer{
+            background:#ee0056;
+            height: 30px !important;
+            line-height: 30px;
+            /*background: -webkit-linear-gradient(#ffe4e7, #d9e8f7); !* Safari 5.1 - 6.0 *!*/
+            /*background: -o-linear-gradient(#ffe4e7, #d9e8f7); !* Opera 11.1 - 12.0 *!*/
+            /*background: -moz-linear-gradient(#ffe4e7, #d9e8f7); !* Firefox 3.6 - 15 *!*/
+            /*background: linear-gradient(#ffe4e7, #d9e8f7); !* 标准的语法 *!*/
+        }
         .el-aside {
-            background-color: #D3DCE6;
-            color: #333;
+            width:200px !important;
+            background: -webkit-linear-gradient(#ff9d66, #f14c81); /* Safari 5.1 - 6.0 */
+            background: -o-linear-gradient(#ff9d66, #f14c81); /* Opera 11.1 - 12.0 */
+            background: -moz-linear-gradient(#ff9d66, #f14c81); /* Firefox 3.6 - 15 */
+            background: linear-gradient(#ff9d66, #f14c81); /* 标准的语法 */
+            ul{
+                border:none;
+                background:none;
+                color:#fff;
+                .el-submenu__title{
+                    color:#fff;
+                    i{
+                        color:#fff;
+                    }
+                    &:hover{
+                        background:#fa6460;
+                    }
+                }
+                .el-menu-item{
+                    color:#fff;
+                    border-bottom:1px solid #ffbfbf;
+                    &:first-child{
+                          border-top:1px solid #ffbfbf;
+                      }
+                    &:hover{
+                        background:#fa6460;
+                    }
+                    &.is-active{
+                        background:#ff4a48;
+                        color:#fff;
+                    }
+                }
+            }
         }
         .el-main {
-            background-color: #E9EEF3;
+            background-color: #fff;
+            /*background: -webkit-linear-gradient(#ffb3c2, #d9e8f7); !* Safari 5.1 - 6.0 *!*/
+            /*background: -o-linear-gradient(#ffb3c2, #d9e8f7); !* Opera 11.1 - 12.0 *!*/
+            /*background: -moz-linear-gradient(#ffb3c2, #d9e8f7); !* Firefox 3.6 - 15 *!*/
+            /*background: linear-gradient(#ffb3c2, #d9e8f7); !* 标准的语法 *!*/
             color: #333;
-            height: calc(100% - 120px);
+            height:100%;
+            border-left:1px solid #f5f5f5;
         }
 
         body > .el-container {
@@ -83,8 +134,9 @@
         }
 
         .tiyaLogo {
-            height: 40px;
-            vertical-align: middle;
+            height: 50px;
+            float:left;
+            padding-top:5px;
 
             img {
                 height: 100%

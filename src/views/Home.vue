@@ -16,10 +16,10 @@
                             <i class="el-icon-menu"></i>
                             <span slot="title">账号管理</span>
                         </template>
-                        <el-menu-item>
+                        <el-menu-item index="/c1/yuwen">
                             <router-link tag="li" :to="{name: 'c1', params: {id:'yuwen'}}">语文</router-link>
                         </el-menu-item>
-                        <el-menu-item>
+                        <el-menu-item index="/c2">
                             <router-link tag="li" :to="{name: 'c2'}">数学</router-link>
                         </el-menu-item>
                     </el-submenu>
@@ -41,17 +41,6 @@
     export default {
         name: 'home',
         methods: {
-            link(v) {
-                let value = this.$route.params.id;
-                console.log(v,value);
-                if(value){
-                    if(v!==value){
-                        this.$router.push({name: 'c1', params: {id: v}})
-                    }
-                }else{
-                    this.$router.push({name: 'c1', params: {id:v}});
-                }
-            },
             handleOpen(key, keyPath) {
                 console.log(key, keyPath);
             },
@@ -60,13 +49,10 @@
             }
         },
         created() {
-            //this.getdata();
+
         },
         watch: {
-            $route(to, from) {
-                console.log(1);
-                //this.getdata();
-            }
+
         }
     }
 </script>
@@ -85,7 +71,6 @@
         .el-aside {
             background-color: #D3DCE6;
             color: #333;
-            height: calc(100% - 60px);
         }
         .el-main {
             background-color: #E9EEF3;

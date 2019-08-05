@@ -22,7 +22,8 @@ const router = new Router({
         children:[
             //{path:"/c1",component: () => import(/* webpackChunkName: "about" */ '@/views/c1.vue')},
             {path:"/c1/:id?",name:"c1",component: () => import(/* webpackChunkName: "about" */ '@/views/c1.vue')},
-            {path:"/c2",name:"c2",component: () => import(/* webpackChunkName: "about" */ '@/views/c2.vue')}
+            {path:"/c2",name:"c2",component: () => import(/* webpackChunkName: "about" */ '@/views/c2.vue')},
+          {path:"/musicLibrary/:id?",name:"musicLibrary",component: () => import(/* webpackChunkName: "about" */ '@/views/musicLibrary.vue')},
         ]
     },
     {
@@ -47,7 +48,7 @@ let patharr = [];
 
 
 router.beforeEach((to, from, next) => {
-  console.log(to, from, next);
+  // console.log(to, from, next);
   document.title = to.meta.title || to.name
   //路由发生变化时取消当前页面网络请求
   Object.keys(sources).forEach(item => {

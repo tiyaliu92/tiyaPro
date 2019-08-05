@@ -117,6 +117,7 @@ const post = (url, params, config = {}) => {
 const get = (url, params, config = {}) => {
     return request(url, params, config, 'get')
 }
+
 //3.导出cancel token列表供全局路由守卫使用
 export {sources, post, get}
 

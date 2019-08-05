@@ -23,7 +23,8 @@
 <style lang="less">
   *{
     margin:0;
-    padding:0
+    padding:0;
+    font-family: "Microsoft YaHei";
   }
   body,html{
     width:100%;

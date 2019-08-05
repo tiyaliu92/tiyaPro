@@ -2,7 +2,7 @@
     <el-container class="home">
         <el-header>
             <img alt="Vue logo" class="tiyaLogo" src="../assets/images/tiyaLogo-c.png">
-            <router-link class="system-name" tag="span" :to="{name: 'c1', params: {id:'math',test:'test'}}">看看天上于是我剪下了月光</router-link>
+            <router-link class="system-name" tag="span" :to="{name: 'c1', params: {id:'math',test:'test'}}">烦恼会解决烦恼</router-link>
         </el-header>
         <el-container>
             <el-aside>
@@ -14,13 +14,47 @@
                     <el-submenu index="1">
                         <template slot="title">
                             <i class="el-icon-menu"></i>
-                            <span slot="title">账号管理</span>
+                            <span slot="title">音乐库</span>
                         </template>
-                        <el-menu-item index="/c1/yuwen">
-                            <router-link tag="li" :to="{name: 'c1', params: {id:'yuwen'}}">语文</router-link>
+                        <el-menu-item index="/musicLibrary/China">
+                            <router-link tag="li" :to="{id:'China'}">中国</router-link>
                         </el-menu-item>
+                        <el-menu-item index="/musicLibrary/Europe">
+                            <router-link tag="li" :to="{id:'Europe'}">欧美</router-link>
+                        </el-menu-item>
+<!--                        <el-menu-item index="/c2">-->
+<!--                            <router-link tag="li" :to="{name: 'c2'}">数学</router-link>-->
+<!--                        </el-menu-item>-->
+                    </el-submenu>
+                    <el-submenu index="2">
+                        <template slot="title">
+                            <i class="el-icon-menu"></i>
+                            <span slot="title">音乐歌单</span>
+                        </template>
                         <el-menu-item index="/c2">
-                            <router-link tag="li" :to="{name: 'c2'}">数学</router-link>
+                            <router-link tag="li" :to="{name: 'c1'}">歌单1</router-link>
+                        </el-menu-item>
+                        <el-menu-item index="/c3">
+                            <router-link tag="li" :to="{name: 'c1'}">歌单2</router-link>
+                        </el-menu-item>
+                        <el-menu-item index="/c4">
+                            <router-link tag="li" :to="{name: 'c1'}">歌单3</router-link>
+                        </el-menu-item>
+                        <!--                        <el-menu-item index="/c2">-->
+                        <!--                            <router-link tag="li" :to="{name: 'c2'}">数学</router-link>-->
+                        <!--                        </el-menu-item>-->
+                    </el-submenu>
+                    <el-menu-item index="3" >
+                        <i class="el-icon-menu"></i>
+                        <span slot="title">收藏夹</span>
+                    </el-menu-item>
+                    <el-submenu index="3">
+                        <template slot="title">
+                            <i class="el-icon-menu"></i>
+                            <span slot="title">音乐歌单</span>
+                        </template>
+                        <el-menu-item index="/c5">
+                            <router-link tag="li" :to="{name: 'c1'}">收藏夹</router-link>
                         </el-menu-item>
                     </el-submenu>
                 </el-menu>
@@ -93,6 +127,7 @@
                 border:none;
                 background:none;
                 color:#fff;
+                text-align:left;
                 .el-submenu__title{
                     color:#fff;
                     i{
@@ -105,6 +140,7 @@
                 .el-menu-item{
                     color:#fff;
                     border-bottom:1px solid #ffbfbf;
+                    i{color:#fff;}
                     &:first-child{
                           border-top:1px solid #ffbfbf;
                       }

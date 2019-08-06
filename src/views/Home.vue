@@ -1,11 +1,11 @@
 <template>
     <el-container class="home">
-        <el-header>
+        <el-header class="el-header-home">
             <img alt="Vue logo" class="tiyaLogo" src="../assets/images/tiyaLogo-c.png">
             <router-link class="system-name" tag="span" :to="{name: 'c1', params: {id:'math',test:'test'}}">烦恼会解决烦恼</router-link>
         </el-header>
-        <el-container>
-            <el-aside>
+        <el-container class="el-container-home">
+            <el-aside class="el-aside-home">
                 <el-menu
                         :default-active="$route.path"
                         class="el-menu-vertical-demo"
@@ -46,17 +46,12 @@
                     </el-submenu>
                     <el-menu-item index="3" >
                         <i class="el-icon-menu"></i>
-                        <span slot="title">收藏夹</span>
+                        <router-link tag="span" slot="title" :to="{name: 'c1'}">收藏夹</router-link>
                     </el-menu-item>
-                    <el-submenu index="3">
-                        <template slot="title">
-                            <i class="el-icon-menu"></i>
-                            <span slot="title">音乐歌单</span>
-                        </template>
-                        <el-menu-item index="/c5">
-                            <router-link tag="li" :to="{name: 'c1'}">收藏夹</router-link>
-                        </el-menu-item>
-                    </el-submenu>
+                    <el-menu-item index="/addMusicMesg">
+                        <i class="el-icon-menu"></i>
+                        <router-link tag="span" slot="title" to="/addMusicMesg">歌曲录入</router-link>
+                    </el-menu-item>
                 </el-menu>
             </el-aside>
             <el-container>
@@ -66,7 +61,7 @@
             </el-container>
 
         </el-container>
-        <el-footer>Footer</el-footer>
+        <el-footer class="el-footer-home">Footer</el-footer>
     </el-container>
 </template>
 <script>
@@ -93,12 +88,11 @@
     .home {
         width: 100%;
         height: 100%;
-
-        .el-header, .el-footer {
+        .el-header-home, .el-footer-home {
             color: #fff;
             text-align: left;
         }
-        .el-header{
+        .el-header-home{
             height: 60px;
             line-height: 60px;
             /*background: #ffa39c;*/
@@ -108,7 +102,10 @@
             background: linear-gradient(to right, #f04b81 , #ff9b71); /* 标准的语法 */
 
         }
-        .el-footer{
+        .el-container-home{
+            height: calc(100% - 90px);
+        }
+        .el-footer-home{
             background:#ee0056;
             height: 30px !important;
             line-height: 30px;
@@ -117,7 +114,7 @@
             /*background: -moz-linear-gradient(#ffe4e7, #d9e8f7); !* Firefox 3.6 - 15 *!*/
             /*background: linear-gradient(#ffe4e7, #d9e8f7); !* 标准的语法 *!*/
         }
-        .el-aside {
+        .el-aside-home {
             width:200px !important;
             background: -webkit-linear-gradient(#ff9d66, #f14c81); /* Safari 5.1 - 6.0 */
             background: -o-linear-gradient(#ff9d66, #f14c81); /* Opera 11.1 - 12.0 */
@@ -153,19 +150,18 @@
                     }
                 }
             }
+
         }
-        .el-main {
+        .el-main{
             background-color: #fff;
             /*background: -webkit-linear-gradient(#ffb3c2, #d9e8f7); !* Safari 5.1 - 6.0 *!*/
             /*background: -o-linear-gradient(#ffb3c2, #d9e8f7); !* Opera 11.1 - 12.0 *!*/
             /*background: -moz-linear-gradient(#ffb3c2, #d9e8f7); !* Firefox 3.6 - 15 *!*/
             /*background: linear-gradient(#ffb3c2, #d9e8f7); !* 标准的语法 *!*/
             color: #333;
-            height:100%;
-            border-left:1px solid #f5f5f5;
+            text-align:left;
         }
-
-        body > .el-container {
+        body > .el-container-home {
             margin-bottom: 40px;
         }
 

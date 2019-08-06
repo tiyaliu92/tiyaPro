@@ -21,9 +21,9 @@ const router = new Router({
       component: () => import(/* webpackChunkName: "about" */ '@/views/Home.vue'),
         children:[
             //{path:"/c1",component: () => import(/* webpackChunkName: "about" */ '@/views/c1.vue')},
-            {path:"/c1/:id?",name:"c1",component: () => import(/* webpackChunkName: "about" */ '@/views/c1.vue')},
-            {path:"/c2",name:"c2",component: () => import(/* webpackChunkName: "about" */ '@/views/c2.vue')},
+
           {path:"/musicLibrary/:id?",name:"musicLibrary",component: () => import(/* webpackChunkName: "about" */ '@/views/musicLibrary.vue')},
+          {path:"/addMusicMesg",name:"addMusicMesg",component: () => import(/* webpackChunkName: "about" */ '@/views/addMusicMesg.vue')},
         ]
     },
     {

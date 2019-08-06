@@ -58,7 +58,7 @@
                 </el-col>
             </el-row>
         </el-footer>
-        <el-cascader-panel :style="contextmenuStyle" :options="options" :show-all-levels="false" v-model="selectedOptions" @active-item-change="catchange()"></el-cascader-panel>
+        <el-cascader-panel :style="contextmenuStyle" :options="options" v-model="selectedOptions" @change="catchange()"></el-cascader-panel>
     </el-container>
 </template>
 
@@ -185,7 +185,8 @@
             },
             catchange(){
                 console.log(this.selectedOptions);
-                this.contextmenuStyle.display='none'
+                this.contextmenuStyle.visibility='hidden';
+
             }
         }
     }

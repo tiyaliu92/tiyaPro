@@ -10,58 +10,58 @@
             </el-form-item>
             <el-form-item label="歌手名称" required>
                 <el-col :span="11">
-                    <el-form-item  prop="region">
-                        <el-input v-model="musicForm.musicName"></el-input>
+                    <el-form-item  prop="singerName">
+                        <el-input v-model="musicForm.singerName"></el-input>
                     </el-form-item>
                 </el-col>
             </el-form-item>
-            <el-form-item label="专辑名称">
+            <el-form-item label="专辑名称" required>
                 <el-col :span="11">
-                    <el-form-item  prop="musicName">
-                        <el-input v-model="musicForm.musicName"></el-input>
+                    <el-form-item  prop="albumName">
+                        <el-input v-model="musicForm.albumName"></el-input>
                     </el-form-item>
                 </el-col>
             </el-form-item>
-            <el-form-item label="发行时间">
+            <el-form-item label="发行时间" required>
                 <el-col :span="11">
-                    <el-form-item  prop="musicName">
-                        <el-date-picker type="date" placeholder="选择日期" v-model="musicForm.date1" style="width: 100%;"></el-date-picker>
+                    <el-form-item  prop="publishTime">
+                        <el-date-picker type="date" placeholder="请选择发行日期" v-model="musicForm.publishTime" style="width: 100%;"></el-date-picker>
                     </el-form-item>
                 </el-col>
             </el-form-item>
 
             <el-form-item label="是否收藏">
                 <el-col :span="11">
-                    <el-form-item  prop="delivery">
-                        <el-switch v-model="musicForm.delivery"></el-switch>
+                    <el-form-item  prop="isCollected">
+                        <el-switch v-model="musicForm.isCollected"></el-switch>
                     </el-form-item>
                 </el-col>
             </el-form-item>
             <el-form-item label="所属歌单">
                 <el-col :span="11">
-                    <el-form-item prop="type">
-                        <el-select v-model="musicForm.region" placeholder="请选择所属歌单">
-                            <el-option label="区域一" value="shanghai"></el-option>
-                            <el-option label="区域二" value="beijing"></el-option>
+                    <el-form-item prop="songList">
+                        <el-select v-model="musicForm.songList" placeholder="请选择所属歌单">
+                            <el-option label="歌单一" value="shanghai"></el-option>
+                            <el-option label="歌单二" value="beijing"></el-option>
                         </el-select>
                     </el-form-item>
                 </el-col>
 
             </el-form-item>
-            <el-form-item label="所属音乐库">
+            <el-form-item label="所属音乐库" required>
                 <el-col :span="11">
-                    <el-form-item  prop="resource">
-                        <el-select v-model="musicForm.region" placeholder="请选择所属歌单">
-                            <el-option label="区域一" value="shanghai"></el-option>
-                            <el-option label="区域二" value="beijing"></el-option>
+                    <el-form-item  prop="musicLibrary" >
+                        <el-select v-model="musicForm.musicLibrary" placeholder="请选择所属音乐库">
+                            <el-option label="中国" value="shanghai"></el-option>
+                            <el-option label="欧美" value="beijing"></el-option>
                         </el-select>
                     </el-form-item>
                 </el-col>
             </el-form-item>
-            <el-form-item label="歌曲歌词" required>
+            <el-form-item label="歌曲歌词">
                 <el-col :span="11">
-                    <el-form-item prop="type">
-                        <el-input type="textarea" v-model="musicForm.desc" placeholder="两句之间请用分号（；）隔开"></el-input>
+                    <el-form-item prop="lyric">
+                        <el-input type="textarea" v-model="musicForm.lyric" placeholder="两句之间请一定用分号（；）隔开"></el-input>
                     </el-form-item>
                 </el-col>
             </el-form-item>
@@ -83,46 +83,44 @@
         data() {
             return {
                 musicForm: {
-                    name: '',
-                    region: '',
-                    date1: '',
-                    date2: '',
-                    delivery: false,
-                    type: [],
-                    resource: '',
-                    desc: ''
+                    musicName: '',
+                    singerName: '',
+                    albumName: '',
+                    publishTime: '',
+                    isCollected: false,
+                    songList: '',
+                    musicLibrary: '',
+                    lyric: ''
                 },
                 rules: {
-                    name: [
-                        { required: true, message: '请输入活动名称', trigger: 'blur' },
-                        { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur' }
+                    musicName: [
+                        { required: true, message: '请输入歌曲名称', trigger: 'blur' },
                     ],
-                    region: [
-                        { required: true, message: '请选择活动区域', trigger: 'change' }
+                    singerName: [
+                        { required: true, message: '请输入歌手名称', trigger: 'blur' },
                     ],
-                    date1: [
+                    albumName: [
+                        { required: true, message: '请输入专辑名称', trigger: 'blur' },
+                    ],
+                    publishTime: [
                         { type: 'date', required: true, message: '请选择日期', trigger: 'change' }
                     ],
-                    date2: [
-                        { type: 'date', required: true, message: '请选择时间', trigger: 'change' }
-                    ],
-                    type: [
-                        { type: 'array', required: true, message: '请至少选择一个活动性质', trigger: 'change' }
-                    ],
-                    resource: [
-                        { required: true, message: '请选择活动资源', trigger: 'change' }
-                    ],
-                    desc: [
-                        { required: true, message: '请填写活动形式', trigger: 'blur' }
+                    musicLibrary: [
+                        { required: true, message: '请选择音乐库', trigger: 'change' }
                     ]
                 }
             };
         },
         methods: {
             submitForm(formName) {
+
+                let vm = this;
                 this.$refs[formName].validate((valid) => {
                     if (valid) {
-                        alert('submit!');
+                        let url = `http://localhost:3001/musicLibrary?`;
+                        this.post(url,vm.musicForm).then(res=>{
+                            console.log(res);
+                        })
                     } else {
                         console.log('error submit!!');
                         return false;

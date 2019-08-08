@@ -218,3 +218,20 @@
         }
     }
 </style>
+
+<!--let dataSource = List.rows.map(item=>{-->
+<!--let obj = {};-->
+<!--item.columns.forEach(it=>{-->
+<!--obj[`columnName${it.key}`] = it.value;-->
+<!--})-->
+<!--return obj;-->
+<!--})-->
+
+<!--console.log(dataSource);-->
+<!--let columns = List.heads.map(item=>{-->
+<!--let obj = {};-->
+<!--obj.title = item.headDisp;-->
+<!--obj.dataIndex = `columnName${item.key}`;-->
+<!--obj.key = `columnName${item.key}`;-->
+<!--return obj;-->
+<!--})-->

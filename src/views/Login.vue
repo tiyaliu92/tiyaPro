@@ -170,10 +170,10 @@
                         let url = 'http://localhost:3001/api/';
                         console.log(this.loginRulesForm.username);
                         if(this.isLogin){//登录
-                            this.get(url+'login',this.loginRulesForm).then((data)=>{
+                            this.post(url+'login',this.loginRulesForm).then((data)=>{
                                 console.log(data);
                                 if(data.code == '200'){
-                                    this.setToken(data.data.token);
+                                    //this.setToken(data.data.token);
                                     this.$router.push('/home')
                                 }
                             })

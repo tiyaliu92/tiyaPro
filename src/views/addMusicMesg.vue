@@ -117,7 +117,7 @@
                 let vm = this;
                 this.$refs[formName].validate((valid) => {
                     if (valid) {
-                        let url = `http://localhost:3001/musicLibrary?`;
+                        let url = `http://localhost:3001/api/musicLibrary`;
                         this.post(url,vm.musicForm).then(res=>{
                             console.log(res);
                         })
